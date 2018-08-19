@@ -42,13 +42,13 @@ export const zGetTotalBalanceSuccess = (data: Object) => ({
   type: Z_GET_TOTAL_BALANCE_SUCCESS,
   payload: { data },
 });
-export const zGetTotalBalance = () => (dispatch: Function) => {
+export const zGetTotalBalance = (address: number) => (dispatch: Function) => {
   dispatch(zGetTotalBalanceRequest());
 
-  return zClient.z_gettotalbalance()
-    .then((response) => dispatch(zGetTotalBalanceSuccess(response)))
-    .catch((err) => dispatch(zGetTotalBalanceError(err)));
-}
+  return zClient.z_gettotalbalance(address)
+    .then(response => dispatch(zGetTotalBalanceSuccess(response)))
+    .catch(err => dispatch(zGetTotalBalanceError(err)));
+};
 
 // List Addresses
 export const zListAddressesRequest = () => ({
@@ -67,9 +67,9 @@ export const zListAddresses = () => (dispatch: Function) => {
   dispatch(zListAddressesRequest());
 
   return zClient.z_listaddresses()
-    .then((response) => dispatch(zListAddressesSuccess(response)))
-    .catch((err) => dispatch(zListAddressesError(err)));
-}
+    .then(response => dispatch(zListAddressesSuccess(response)))
+    .catch(err => dispatch(zListAddressesError(err)));
+};
 
 // List Transactions
 export const zListTransactionsRequest = () => ({
@@ -88,9 +88,9 @@ export const zListTransactions = () => (dispatch: Function) => {
   dispatch(zListTransactionsRequest());
 
   return zClient.z_listtransactions()
-    .then((response) => dispatch(zListTransactionsSuccess(response)))
-    .catch((err) => dispatch(zListTransactionsError(err)));
-}
+    .then(response => dispatch(zListTransactionsSuccess(response)))
+    .catch(err => dispatch(zListTransactionsError(err)));
+};
 
 export default {
   setAuthConfig,

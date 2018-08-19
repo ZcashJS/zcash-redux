@@ -1,28 +1,53 @@
 {
   "name": "zcash-redux",
   "version": "0.2.0",
-  "main": "index.js",
+  "main": "lib/index.js",
   "license": "MIT",
   "description": "Redux client for Zcash Daemon",
   "scripts": {
-    "build": "babel . -d lib/",
-    "flow": "glow"
+    "prepack": "yarn run prepack:babel && yarn run prepack:flow",
+    "prepack:babel": "babel src/ -d lib",
+    "prepack:flow": "flow-copy-source src lib",
+    "flow:precommit": "glow",
+    "lint:precommit": "eslint ./src/",
+    "lint:fix": "eslint ./src/ --fix"
   },
   "author": {
     "name": "André Neves",
     "email": "andrerfneves@protonmail.com",
     "url": "https://andrenev.es"
   },
+  "keywords": [
+    "zcash",
+    "redux",
+    "zcash-redux"
+  ],
   "dependencies": {
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "stdrpc": "^1.0.0"
   },
-  "keywords": [],
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-flow": "^6.23.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.79.1",
-    "glow": "^1.2.2"
-  }
+    "flow-copy-source": "^2.0.2",
+    "glow": "^1.2.2",
+    "pre-commit": "^1.2.2"
+  },
+  "files": [
+    "lib"
+  ],
+  "pre-commit": [
+    "lint:precommit",
+    "flow:precommit"
+  ]
 }

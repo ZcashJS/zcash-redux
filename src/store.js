@@ -3,20 +3,18 @@
 import {
   createStore,
   applyMiddleware,
-  compose
+  compose,
 } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
-
-let store;
 
 export default (initialState: Object = {}) => {
   let middleware;
   let enhancer;
 
   if (
-    process.env.NODE_ENV !== 'production' ||
-    process.env.NODE_ENV !== 'staging'
+    process.env.NODE_ENV !== 'production'
+    || process.env.NODE_ENV !== 'staging'
   ) {
     middleware = applyMiddleware(thunk);
     enhancer = compose(
@@ -29,4 +27,4 @@ export default (initialState: Object = {}) => {
   }
 
   return createStore(rootReducer, initialState, enhancer);
-}
+};

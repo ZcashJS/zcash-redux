@@ -2,26 +2,29 @@
 
 import stdrpc from 'stdrpc';
 import zGetStore from './store';
-import zActions from './actions';
 
 export default class zClient {
   constructor() {
-    this.store = zGetStore();
+    const store = zGetStore();
+    const { config } = store.getState();
 
-    const { zcash_client_config, zcash_auth } = this.store.getState();
-
-    this.rpc = stdrpc({
-      ...zcash_auth,
-      ...zcash_client_config,
-    });
+    this.rpc = stdrpc({ ...config });
   }
 
-  store: Object;
   rpc: Object;
 
+  static z_listtransactions: any => Object;
+
+  static z_listaddresses: any => Object;
+
+  static z_gettotalbalance: number => Object;
+
   z_listtransactions = () => this.rpc.z_listtransactions();
+
   z_listaddresses = () => this.rpc.z_listaddresses();
+
   z_gettotalbalance = (address: number) => this.rpc.z_getbalance(address);
+
   z_shieldcoinbase = (from: number, to: number) => this.rpc.z_shieldcoinbase(from, to);
 
   z_sendmany = (

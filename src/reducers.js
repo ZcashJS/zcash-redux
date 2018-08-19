@@ -5,13 +5,13 @@ import {
   SET_AUTH_CONFIG,
   RESET_AUTH_CONFIG,
   Z_GET_TOTAL_BALANCE_ERROR,
-  Z_GET_TOTAL_BALANCE_REQUEST,
+  // Z_GET_TOTAL_BALANCE_REQUEST,
   Z_GET_TOTAL_BALANCE_SUCCESS,
   Z_LIST_ADDRESSES_ERROR,
-  Z_LIST_ADDRESSES_REQUEST,
+  // Z_LIST_ADDRESSES_REQUEST,
   Z_LIST_ADDRESSES_SUCCESS,
   Z_LIST_TRANSACTIONS_ERROR,
-  Z_LIST_TRANSACTIONS_REQUEST,
+  // Z_LIST_TRANSACTIONS_REQUEST,
   Z_LIST_TRANSACTIONS_SUCCESS,
 } from './actions';
 
@@ -36,17 +36,17 @@ const config = (state: Object = DEFAULT_AUTH_CONFIG, action: Action) => {
     default:
       return state;
   }
-}
+};
 
 // Wallet Transactions
 const transactions = (state: Array<*> = [], action) => {
   switch (action.type) {
     case Z_LIST_TRANSACTIONS_SUCCESS:
-      return [ ...action.payload.data ];
+      return [...action.payload.data];
     default:
       return state;
   }
-}
+};
 
 // Wallet Total Balance
 const balance = (state: Object = {}, action: Action) => {
@@ -56,7 +56,7 @@ const balance = (state: Object = {}, action: Action) => {
     default:
       return state;
   }
-}
+};
 
 // Wallet Addresses
 const addresses = (state: Array<*> = [], action: Action) => {
@@ -66,7 +66,7 @@ const addresses = (state: Array<*> = [], action: Action) => {
     default:
       return state;
   }
-}
+};
 
 // Error
 const error = (state: Object = {}, action: Action) => {
@@ -78,7 +78,7 @@ const error = (state: Object = {}, action: Action) => {
     default:
       return state;
   }
-}
+};
 
 // Root Reducer
 export default combineReducers({
