@@ -1,4 +1,4 @@
-# zcash-redux
+# Zcash Redux
 
 Redux clients for Zcash Daemon
 

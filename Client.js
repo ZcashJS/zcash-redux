@@ -1,33 +1,34 @@
-import stdrpc from 'stdrpc'
-
-import getStore from 'zcash-redux/getStore'
+import stdrpc from 'stdrpc';
+import zGetStore from './store';
 
 const errorf = (err) => {
-  console.warn(err)
-  return err
+  console.warn(err);
+  return err;
 }
 
 class Client {
   constructor() {
-    this.store = getStore()
-    const { zcash_client_config, zcash_auth } = this.store.getState()
+    this.store = getStore();
+
+    const { zcash_client_config, zcash_auth } = this.store.getState();
+
     this.rpc = stdrpc({
       ...zcash_auth,
       ...zcash_client_config,
     })
   }
 
-  listtransactions(count = 10, from = 0, includeWatchOnly = false) {
-    return this.rpc.listtransactions(
-      '*', count, from, includeWatchOnly
-    ).then((transactions) => {
-      this.store.dispatch({
-      type: 'LISTTRANSACTIONS',
-        transactions,
-      })
-      return transactions
-    }).catch(errorf)
-  }
+  listtransactions = (count = 10, from = 0, includeWatchOnly = false) =>
+    this.rpc.listtransactions(
+        '*', count, from, includeWatchOnly
+      ).then((transactions) => {
+        this.store.dispatch({
+        type: 'LISTTRANSACTIONS',
+          transactions,
+        })
+        return transactions
+      }).catch(errorf)
+    }
 
   z_gettotalbalance() {
     return this.rpc.z_gettotalbalance().then((info) => {
