@@ -14,11 +14,10 @@
     "lint:precommit": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix"
   },
-  "author": {
-    "name": "André Neves",
-    "email": "andrerfneves@protonmail.com",
-    "url": "https://andrenev.es"
-  },
+  "author": "Skylar Saveland <skylar.saveland@gmail.com>",
+  "contributors": [
+    "André Neves <andrerfneves@protonmail.com> (https://andrenev.es)"
+  ],
   "keywords": [
     "zcash",
     "redux",
