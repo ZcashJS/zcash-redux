@@ -13,12 +13,6 @@ export default class zClient {
 
   rpc: Object;
 
-  static z_listtransactions: any => Object;
-
-  static z_listaddresses: any => Object;
-
-  static z_gettotalbalance: number => Object;
-
   z_listtransactions = () => this.rpc.z_listtransactions();
 
   z_listaddresses = () => this.rpc.z_listaddresses();

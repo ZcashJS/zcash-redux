@@ -15,6 +15,8 @@ export const Z_LIST_TRANSACTIONS_ERROR = 'Z_LIST_TRANSACTIONS_ERROR';
 export const Z_LIST_TRANSACTIONS_REQUEST = 'Z_LIST_TRANSACTIONS_REQUEST';
 export const Z_LIST_TRANSACTIONS_SUCCESS = 'Z_LIST_TRANSACTIONS_SUCCESS';
 
+const client = new zClient(); // eslint-disable-line
+
 export const setAuthConfig = (config: Object) => ({
   type: SET_AUTH_CONFIG,
   payload: {
@@ -45,7 +47,7 @@ export const zGetTotalBalanceSuccess = (data: Object) => ({
 export const zGetTotalBalance = (address: number) => (dispatch: Function) => {
   dispatch(zGetTotalBalanceRequest());
 
-  return zClient.z_gettotalbalance(address)
+  return client.z_gettotalbalance(address)
     .then(response => dispatch(zGetTotalBalanceSuccess(response)))
     .catch(err => dispatch(zGetTotalBalanceError(err)));
 };
@@ -66,7 +68,7 @@ export const zListAddressesSuccess = (data: Object) => ({
 export const zListAddresses = () => (dispatch: Function) => {
   dispatch(zListAddressesRequest());
 
-  return zClient.z_listaddresses()
+  return client.z_listaddresses()
     .then(response => dispatch(zListAddressesSuccess(response)))
     .catch(err => dispatch(zListAddressesError(err)));
 };
@@ -87,7 +89,7 @@ export const zListTransactionsSuccess = (data: Object) => ({
 export const zListTransactions = () => (dispatch: Function) => {
   dispatch(zListTransactionsRequest());
 
-  return zClient.z_listtransactions()
+  return client.z_listtransactions()
     .then(response => dispatch(zListTransactionsSuccess(response)))
     .catch(err => dispatch(zListTransactionsError(err)));
 };
