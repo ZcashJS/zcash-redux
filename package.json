@@ -1,6 +1,6 @@
 {
   "name": "zcash-redux",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "lib/index.js",
   "license": "MIT",
   "description": "Redux client for Zcash Daemon",
@@ -12,7 +12,8 @@
     "flow:coverage": "flow-coverage-report -t html -i 'src/*.js' -x 'lib/*.js' --threshold 70",
     "flow:report": "yarn flow:coverage && cd ./flow-coverage && open index.html",
     "lint:precommit": "eslint ./src/",
-    "lint:fix": "eslint ./src/ --fix"
+    "lint:fix": "eslint ./src/ --fix",
+    "publish": "npm publish"
   },
   "author": {
     "name": "André Neves",
