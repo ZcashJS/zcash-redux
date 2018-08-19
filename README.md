@@ -2,16 +2,20 @@
 
 Redux clients for Zcash Daemon
 
+## WARNING
+
+> Library currently under development, will undergo further breaking changes. Not ready for production use.
+
 ## Installation
 
 ```bash
-npm install zcash-redux
+yarn add zcash-redux
 ```
 
 or
 
 ```bash
-yarn add zcash-redux
+npm i zcash-redux
 ```
 
 ## Usage
@@ -21,24 +25,13 @@ it as a child reducer with `combineReducers`:
 
 ```js
 import { zReducer } from 'zcash-redux';
-```
 
-You can also instantiate your Redux store directly with the `zGetStore` helper:
-
-```js
-import { zGetStore } from 'zcash-redux';
-
-const options = {
-  zcash_auth: {
-    username: 'myrpcusername',
-    password: 'myrpcpassword',
-  },
-  zcash_client_config: {
-    url: 'http://localhost:8232',
-  },
-};
-
-const store = zGetStore(options);
+export default combineReducers({
+  header: headerReducer,
+  routing: routerReducer,
+  ...
+  zcash: zReducer,
+});
 ```
 
 You can use the stateful client to make RPC calls which affect the store.

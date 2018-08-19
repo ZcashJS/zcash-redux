@@ -1,5 +1,6 @@
 [ignore]
-.*/flow-coverage/.*
+flow-coverage
+lib
 
 [include]
 

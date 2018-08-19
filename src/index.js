@@ -5,9 +5,9 @@ import zClient from './client';
 import zActions from './actions';
 import zGetStore from './store';
 
-export default {
+export {
   zActions,
   zClient,
   zGetStore,
   zReducer,
-}
+};
