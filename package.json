@@ -1,0 +1,20 @@
+{
+  "name": "zcash-redux",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "Redux client for Zcash Daemon",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "André Neves",
+    "email": "andrerfneves@protonmail.com",
+    "url": "https://andrenev.es"
+  },
+  "dependencies": {
+    "redux": "^4.0.0",
+    "stdrpc": "^1.0.0"
+  },
+  "keywords": []
+}
