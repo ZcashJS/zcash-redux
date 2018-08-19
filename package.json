@@ -9,6 +9,8 @@
     "prepack:babel": "babel src/ -d lib",
     "prepack:flow": "flow-copy-source src lib",
     "flow:precommit": "glow",
+    "flow:coverage": "flow-coverage-report -t html -i 'src/*.js' -x 'lib/*.js' --threshold 70",
+    "flow:report": "yarn flow:coverage && cd ./flow-coverage && open index.html",
     "lint:precommit": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix"
   },
@@ -42,6 +44,7 @@
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.79.1",
     "flow-copy-source": "^2.0.2",
+    "flow-coverage-report": "^0.5.0",
     "glow": "^1.2.2",
     "pre-commit": "^1.2.2"
   },

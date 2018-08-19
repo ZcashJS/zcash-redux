@@ -68,7 +68,7 @@ export const zListAddressesSuccess = (data: Object) => ({
 export const zListAddresses = () => (dispatch: Function) => {
   dispatch(zListAddressesRequest());
 
-  return client.z_listaddresses()
+  return client.z_listtransactions()
     .then(response => dispatch(zListAddressesSuccess(response)))
     .catch(err => dispatch(zListAddressesError(err)));
 };

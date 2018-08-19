@@ -9,8 +9,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
 export default (initialState: Object = {}) => {
-  let middleware;
-  let enhancer;
+  let middleware: Object;
+  let enhancer: Object;
 
   if (
     process.env.NODE_ENV !== 'production'
