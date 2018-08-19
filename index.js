@@ -1,9 +1,9 @@
 // @flow
 
-import zReducer from './reducers';
-import zClient from './client';
-import zActions from './actions';
-import zGetStore from './store';
+import zReducer from './src/reducers';
+import zClient from './src/client';
+import zActions from './src/actions';
+import zGetStore from './src/store';
 
 export default {
   zActions,

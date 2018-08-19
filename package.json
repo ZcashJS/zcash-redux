@@ -1,12 +1,11 @@
 {
   "name": "zcash-redux",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
   "description": "Redux client for Zcash Daemon",
   "scripts": {
     "build": "babel . -d lib/",
-    "prepublish": "yarn run build",
     "flow": "glow"
   },
   "author": {
@@ -15,14 +14,15 @@
     "url": "https://andrenev.es"
   },
   "dependencies": {
-    "glow": "^1.2.2",
     "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "stdrpc": "^1.0.0"
   },
   "keywords": [],
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
-    "flow-bin": "^0.79.1"
+    "flow-bin": "^0.79.1",
+    "glow": "^1.2.2"
   }
 }
