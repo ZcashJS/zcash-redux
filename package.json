@@ -5,7 +5,9 @@
   "license": "MIT",
   "description": "Redux client for Zcash Daemon",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel . -d lib/",
+    "prepublish": "yarn run build",
+    "flow": "glow"
   },
   "author": {
     "name": "André Neves",
@@ -13,8 +15,14 @@
     "url": "https://andrenev.es"
   },
   "dependencies": {
+    "glow": "^1.2.2",
     "redux": "^4.0.0",
     "stdrpc": "^1.0.0"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.79.1"
+  }
 }
