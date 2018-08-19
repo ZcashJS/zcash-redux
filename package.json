@@ -1,6 +1,6 @@
 {
   "name": "zcash-redux",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "lib/index.js",
   "license": "MIT",
   "description": "Redux client for Zcash Daemon",
