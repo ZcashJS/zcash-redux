@@ -12,8 +12,7 @@
     "flow:coverage": "flow-coverage-report -t html -i 'src/*.js' -x 'lib/*.js' --threshold 70",
     "flow:report": "yarn flow:coverage && cd ./flow-coverage && open index.html",
     "lint:precommit": "eslint ./src/",
-    "lint:fix": "eslint ./src/ --fix",
-    "publish": "npm publish"
+    "lint:fix": "eslint ./src/ --fix"
   },
   "author": {
     "name": "André Neves",
